@@ -6,6 +6,6 @@
 - Waifu Token: `0x3AecEca63990531e601498a3589F12c002A24F82`
 
 ## Boba Mainnet
-- Factory: TBA
-- Router: TBA
+- Factory: `0x3d97964506800d433fb5DbEBDd0c202EC9B62557`
+- Router: `0x27FF70509C90eAeeCA417C748855bC6EE5159715`
 - Waifu Token: TBA
