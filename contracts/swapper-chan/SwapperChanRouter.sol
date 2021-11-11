@@ -262,8 +262,7 @@ contract SwapperChanRouter is Ownable {
         amounts = SwapperChanLibrary.getAmountsIn(factory, amountOut, path);
 
         if (feeAddress != address(0)) {
-            uint amountIn = amounts[0].mul(1000).div(1000 - swapFee);
-            uint fees = amountIn.mul(swapFee).div(1000);
+            uint fees = amounts[0].mul(swapFee).div(1000);
 
             require(amounts[0].add(fees) <= amountInMax, 'SwapperChan: EXCESSIVE_INPUT_AMOUNT');
 
@@ -317,8 +316,7 @@ contract SwapperChanRouter is Ownable {
         amounts = SwapperChanLibrary.getAmountsIn(factory, amountOut, path);
 
         if (feeAddress != address(0)) {
-            uint amountIn = amounts[0].mul(1000).div(1000 - swapFee);
-            uint fees = amountIn.mul(swapFee).div(1000);
+            uint fees = amounts[0].mul(swapFee).div(1000);
 
             require(amounts[0].add(fees) <= amountInMax, 'SwapperChan: EXCESSIVE_INPUT_AMOUNT');
 
@@ -376,8 +374,7 @@ contract SwapperChanRouter is Ownable {
         amounts = SwapperChanLibrary.getAmountsIn(factory, amountOut, path);
 
         if (feeAddress != address(0)) {
-            uint amountIn = amounts[0].mul(1000).div(1000 - swapFee);
-            uint fees = amountIn.mul(swapFee).div(1000);
+            uint fees = amounts[0].mul(swapFee).div(1000);
 
             require(amounts[0].add(fees) <= msg.value, 'SwapperChan: EXCESSIVE_INPUT_AMOUNT');
 
