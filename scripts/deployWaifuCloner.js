@@ -26,16 +26,15 @@ async function main() {
     console.log("Account balance:", (await deployer.getBalance()).toString());
     console.log("");
 
-    // Deploy SwapperChanRouter
-    const SwapperChanRouterContract = await hre.ethers.getContractFactory("SwapperChanRouter");
-    const SwapperChanRouter = await SwapperChanRouterContract.deploy(
-        "0x3d97964506800d433fb5DbEBDd0c202EC9B62557", // SwapperChanFactory
-        "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000" // WETH
+    // Deploy WaifuCloner
+    const WaifuClonerContract = await hre.ethers.getContractFactory("WaifuCloner");
+    const WaifuCloner = await WaifuClonerContract.deploy(
+        "0x20ca2f6fbfdbf893efc7da7aca6a1d2a11463305", // WAIFU Token
     );
 
-    await SwapperChanRouter.deployed();
+    await WaifuCloner.deployed();
 
-    console.log("SwapperChanRouter deployed to:", SwapperChanRouter.address);
+    console.log("WaifuCloner deployed to:", WaifuCloner.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

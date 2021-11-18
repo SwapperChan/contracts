@@ -26,16 +26,27 @@ async function main() {
     console.log("Account balance:", (await deployer.getBalance()).toString());
     console.log("");
 
-    // Deploy SwapperChanRouter
-    const SwapperChanRouterContract = await hre.ethers.getContractFactory("SwapperChanRouter");
-    const SwapperChanRouter = await SwapperChanRouterContract.deploy(
-        "0x3d97964506800d433fb5DbEBDd0c202EC9B62557", // SwapperChanFactory
-        "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000" // WETH
+    // Deploy Dev & Investor TokenLock
+    const TokenLockContract = await hre.ethers.getContractFactory("TokenLock");
+    const DevTimeLock = await TokenLockContract.deploy();
+    await DevTimeLock.deployed();
+    console.log("DevTimeLock deployed to:", DevTimeLock.address);
+
+    const InvestorTimeLock = await TokenLockContract.deploy();
+    await InvestorTimeLock.deployed();
+    console.log("InvestorTimeLock deployed to:", InvestorTimeLock.address);
+
+    // Deploy MasterSimp
+    const MasterSimpContract = await hre.ethers.getContractFactory("MasterSimp");
+    const MasterSimp = await MasterSimpContract.deploy(
+        deployer.address, // Treasury address
+        DevTimeLock.address, // Dev address
+        InvestorTimeLock.address // Investor address
     );
 
-    await SwapperChanRouter.deployed();
+    await MasterSimp.deployed();
 
-    console.log("SwapperChanRouter deployed to:", SwapperChanRouter.address);
+    console.log("MasterSimp deployed to:", MasterSimp.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
