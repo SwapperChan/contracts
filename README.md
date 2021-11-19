@@ -32,10 +32,10 @@ SwapperChanRouter
 https://blockexplorer.boba.network/address/0x215EC743F2316A0fa4a6Af5A7C331E859f4F5E2b
 
 Dev TokenLock
-https://blockexplorer.boba.network/address/0x98c665Fa3ed31De254633Bc1ffc7BF58167BDEcC
+https://blockexplorer.boba.network/address/0xdd36321aF0524A8B4374AC84909F451cd783Bee6
 
 Investor TokenLock
-https://blockexplorer.boba.network/address/0x03187ba9c14545ee76a43a65581a84a6181b52d1
+https://blockexplorer.boba.network/address/0xe0F1AdF8246844A7a61048E1552671570a4E9fE8
 
 MasterSimp
 https://blockexplorer.boba.network/address/0x1a41Ff0df89B8331bE144B10f4769b95Ed4068B8
