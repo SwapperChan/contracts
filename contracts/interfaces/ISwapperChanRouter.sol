@@ -134,6 +134,17 @@ interface ISwapperChanRouter {
         uint deadline
     ) external;
 
+    function addLiquiditySupportingFeeOnTransfer(
+        address feeToken, 
+        address tokenB, 
+        uint amountFeeTokenDesired,
+        uint amountBDesired,
+        uint amountFeeTokenMin,
+        uint amountBMin,
+        address to,
+        uint deadline
+    ) external returns (uint amountFeeToken, uint amountB, uint liquidity);
+
     function feeAddress() external pure returns (address);
     function swapFee() external pure returns (uint);
 

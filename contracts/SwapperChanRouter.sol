@@ -26,7 +26,13 @@ contract SwapperChanRouter is Ownable {
         _;
     }
 
+    event SwapFeeAddressChanged(address feeAddress);
+    event SwapFeeChanged(uint256 swapFee);
+
     constructor(address _factory, address _WETH) public {
+        require(_factory != address(0), "SwapperChan: INVALID_ADDRESS");
+        require(_WETH != address(0), "SwapperChan: INVALID_ADDRESS");
+
         factory = _factory;
         WETH = _WETH;
     }
@@ -557,10 +563,14 @@ contract SwapperChanRouter is Ownable {
     // **** OWNER FUNCTIONS ****
     function setFeeAddress(address _feeAddress) onlyOwner external virtual {
         feeAddress = _feeAddress;
+
+        emit SwapFeeAddressChanged(feeAddress);
     }
 
     function setSwapFees(uint _swapFee) onlyOwner external virtual {
         require(_swapFee <= MAX_SWAP_FEE, "SwapperChan: SWAP_FEE_EXCEEDED_MAX");
         swapFee = _swapFee;
+
+        emit SwapFeeChanged(swapFee);
     }
 }
