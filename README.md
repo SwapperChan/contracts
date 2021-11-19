@@ -29,7 +29,7 @@ SwapperChanFactory
 https://blockexplorer.boba.network/address/0x3d97964506800d433fb5DbEBDd0c202EC9B62557
 
 SwapperChanRouter
-https://blockexplorer.boba.network/address/0x27FF70509C90eAeeCA417C748855bC6EE5159715
+https://blockexplorer.boba.network/address/0x215EC743F2316A0fa4a6Af5A7C331E859f4F5E2b
 
 Dev TokenLock
 https://blockexplorer.boba.network/address/0x98c665Fa3ed31De254633Bc1ffc7BF58167BDEcC
@@ -38,10 +38,10 @@ Investor TokenLock
 https://blockexplorer.boba.network/address/0x03187ba9c14545ee76a43a65581a84a6181b52d1
 
 MasterSimp
-https://blockexplorer.boba.network/address/0xC2b66a7d69C8D321e40741cfBDb92bAe5d59402c
+https://blockexplorer.boba.network/address/0x1a41Ff0df89B8331bE144B10f4769b95Ed4068B8
 
 WAIFU
-https://blockexplorer.boba.network/address/0xb27A1bf554657222F2D2c44848BFB508e2230bD2
+https://blockexplorer.boba.network/address/0xB5cB0975716A4AA6438d3FA02364886E13fd678c 
 
 WaifuCloner (xWAIFU)
-https://blockexplorer.boba.network/address/0x5B74534E9a8cDF9c95715BD380895645824B9246
+https://blockexplorer.boba.network/address/0xaE4a00A5051141BfDc16B7588E174EFE40CEF53f

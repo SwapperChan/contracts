@@ -65,6 +65,9 @@ contract MasterSimp is Ownable {
     address public devAddress; // 20% (3 months cliff)
     address public investorAddress; // 10% (3 months cliff)
 
+    event Add(uint256 allocPoint, address lpToken, bool withUpdate);
+    event Set(uint256 pid, uint256 allocPoint, bool withUpdate);
+    event UpdatePool(uint256 pid);
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
     event Withdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event EmergencyWithdraw(
@@ -72,7 +75,7 @@ contract MasterSimp is Ownable {
         uint256 indexed pid,
         uint256 amount
     );
-    event UpdateEmissionRate(address indexed user, uint256 _waifuPerBlock);
+    event UpdateEmissionRate(uint256 _waifuPerBlock);
 
     constructor(
         address _treasuryAddress,
@@ -127,6 +130,8 @@ contract MasterSimp is Ownable {
                 accWaifuPerShare: 0
             })
         );
+
+        emit Add(_allocPoint, address(_lpToken), _withUpdate);
     }
 
     // Update the given pool's WAIFU allocation point. Can only be called by the owner.
@@ -142,6 +147,8 @@ contract MasterSimp is Ownable {
             _allocPoint
         );
         poolInfo[_pid].allocPoint = _allocPoint;
+
+        emit Set(_pid, _allocPoint, _withUpdate);
     }
 
     // Return reward multiplier over the given _from to _to block.
@@ -234,6 +241,8 @@ contract MasterSimp is Ownable {
 
         // 10% Investors
         waifu.mint(investorAddress, waifuEmission.div(10));
+
+        emit UpdatePool(_pid);
     }
 
     // Deposit LP tokens to MasterChef for WAIFU allocation.
@@ -300,7 +309,7 @@ contract MasterSimp is Ownable {
     function updateEmissionRate(uint256 _waifuPerBlock) external onlyOwner {
         massUpdatePools();
         waifuPerBlock = _waifuPerBlock;
-        emit UpdateEmissionRate(msg.sender, _waifuPerBlock);
+        emit UpdateEmissionRate(_waifuPerBlock);
     }
 
     function updateDistributionAddresses(
